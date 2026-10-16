@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Offset shadow -->
+  <rect x="40" y="40" width="440" height="440" rx="88" fill="#000000" />
+  <!-- Blue badge -->
+  <rect x="24" y="24" width="440" height="440" rx="88" fill="#6FA8FF" stroke="#000000" stroke-width="24" />
+  <!-- Bold C -->
+  <path d="M 342 168 A 128 128 0 1 0 342 332" fill="none" stroke="#000000" stroke-width="76" stroke-linecap="butt" />
+  <!-- Sparkle -->
+  <path d="M 380 75 L 391 101 L 417 112 L 391 123 L 380 149 L 369 123 L 343 112 L 369 101 Z" fill="#FDE047" stroke="#000000" stroke-width="6" />
+</svg>

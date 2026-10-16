@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* Gentle infinite float after orb settles */
+@keyframes gentleFloat1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes gentleFloat2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes gentleFloat3 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes twinkleAndFloat {
+  0%, 100% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-25px) scale(1.15) rotate(180deg);
+    opacity: 0.95;
+  }
+}
+
+.animate-sparkle {
+  animation: twinkleAndFloat var(--sparkle-duration, 6s) ease-in-out infinite;
+  animation-delay: var(--sparkle-delay, 0s);
+}
+
+/* ─── Hanging Gallery — per-card sway keyframes ─────────────────────────── */
+/* Each card gets a unique keyframe so they never all move in sync.
+   The rotation pivots from transformOrigin set inline (thread attachment). */
+
+@keyframes sway-1 {
+  0%,100% { transform: rotate(-1.5deg); }
+  30%     { transform: rotate(1.8deg);  }
+  65%     { transform: rotate(-0.8deg); }
+}
+@keyframes sway-2 {
+  0%,100% { transform: rotate(1.2deg);  }
+  40%     { transform: rotate(-2.1deg); }
+  70%     { transform: rotate(0.6deg);  }
+}
+@keyframes sway-3 {
+  0%,100% { transform: rotate(-0.8deg); }
+  25%     { transform: rotate(1.4deg);  }
+  75%     { transform: rotate(-1.9deg); }
+}
+@keyframes sway-4 {
+  0%,100% { transform: rotate(1.8deg);  }
+  50%     { transform: rotate(-1.5deg); }
+  80%     { transform: rotate(0.9deg);  }
+}
+@keyframes sway-5 {
+  0%,100% { transform: rotate(-1.2deg); }
+  35%     { transform: rotate(1.6deg);  }
+  70%     { transform: rotate(-0.7deg); }
+}
+@keyframes sway-6 {
+  0%,100% { transform: rotate(1.5deg);  }
+  45%     { transform: rotate(-1.8deg); }
+  75%     { transform: rotate(0.8deg);  }
+}
+@keyframes sway-7 {
+  0%,100% { transform: rotate(-1.9deg); }
+  30%     { transform: rotate(1.3deg);  }
+  60%     { transform: rotate(-0.9deg); }
+}
+@keyframes sway-8 {
+  0%,100% { transform: rotate(1.4deg);  }
+  40%     { transform: rotate(-1.6deg); }
+  80%     { transform: rotate(0.7deg);  }
+}
+
+/* Prevent minifiers/build tools from tree-shaking these keyframes by referencing them statically */
+.hanging-card-1 { animation-name: sway-1; }
+.hanging-card-2 { animation-name: sway-2; }
+.hanging-card-3 { animation-name: sway-3; }
+.hanging-card-4 { animation-name: sway-4; }
+.hanging-card-5 { animation-name: sway-5; }
+.hanging-card-6 { animation-name: sway-6; }
+.hanging-card-7 { animation-name: sway-7; }
+.hanging-card-8 { animation-name: sway-8; }
+
+/* Reduced-motion: freeze all hanging animations */
+@media (prefers-reduced-motion: reduce) {
+  .hanging-card {
+    animation: none !important;
+  }
+}
+
+/* ─── Global Custom Blue Cursor ─────────────────────────────── */
+.custom-cursor-blue,
+.custom-cursor-blue a,
+.custom-cursor-blue button,
+.custom-cursor-blue [role="button"],
+.custom-cursor-blue input,
+.custom-cursor-blue select,
+.custom-cursor-blue textarea {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M2,2 L2,20 L7,15 L14,15 Z' fill='%232F6BFF' stroke='%23111111' stroke-width='2.5' stroke-linejoin='round'/></svg>") 2 2, auto !important;
+}
+
+/* ─── Infinite Marquee ─────────────────────────────── */
+.marquee-container {
+  overflow: hidden;
+}
+
+@keyframes infinite-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: infinite-marquee 18s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+
+
