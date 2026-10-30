@@ -241,14 +241,9 @@ export default function Page() {
                       className="w-full h-full"
                     />
 
-                    {/* Aesthetic Viewfinder & Location Badges */}
-                    <div className="absolute top-2 left-2 z-10 flex items-center gap-1.5 bg-black/80 text-white font-mono text-[9px] px-1.5 py-0.5 border border-white/20 select-none pointer-events-none">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                      <span>LIVE</span>
-                    </div>
-
+                    {/* Location Badge */}
                     <div className="absolute bottom-2 right-2 z-10 bg-white/95 text-black font-mono font-black text-[9px] px-1.5 py-0.5 border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] select-none pointer-events-none">
-                      PUNE, IN
+                      NAGPUR, IN
                     </div>
                   </div>
 
