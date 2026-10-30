@@ -6,6 +6,7 @@ import ProjectsHanging from "../components/ProjectsHanging";
 import CodingStats from "../components/CodingStats";
 import Contact from "../components/Contact";
 import CoolModeToggle from "../components/CoolModeToggle";
+import LiquidHover from "../components/LiquidHover";
 
 export default function Page() {
   return (
@@ -124,7 +125,7 @@ export default function Page() {
       </main>
 
       {/* About Me Section */}
-      <section id="about" className="relative w-full bg-[#FFFBEF] border-t-4 border-black mt-0 lg:-mt-36 pt-16 sm:pt-24 lg:pt-40 pb-16 sm:pb-24 px-4 sm:px-6 md:px-12 z-0">
+      <section id="about" className="relative w-full bg-[#FFFBEF] border-t-4 border-black mt-0 lg:-mt-36 pt-12 sm:pt-16 lg:pt-28 pb-16 sm:pb-24 px-4 sm:px-6 md:px-12 z-0">
         <div className="max-w-6xl mx-auto relative">
           {/* Rope Hanging Character Image Container - Positioned cleanly in header area on mobile, aligned in empty space between boxes on desktop */}
           <div className="block absolute right-[-5px] sm:right-2 md:left-[calc(50%-117px)] lg:left-[calc(50%-144px)] top-[-40px] sm:top-[-60px] md:top-[-80px] lg:top-[-115px] md:bottom-[-96px] z-20 w-[110px] sm:w-[140px] md:w-[260px] lg:w-[320px] h-[185px] sm:h-[220px] md:h-auto overflow-hidden md:overflow-visible pointer-events-none group/rope">
@@ -196,21 +197,77 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-start">
             
-            {/* Left Column: Title & Headline */}
-            <div className="space-y-4 sm:space-y-6 pr-2 sm:pr-4 md:pr-6 lg:pr-10">
-              <div className="inline-block bg-blue-400 text-black font-mono font-black text-xs md:text-sm px-3.5 py-1.5 border-2 border-black uppercase tracking-wider shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)]">
-                Who is Chaitanya?
+            {/* Left Column: Title, Headline & Framed Photo */}
+            <div className="space-y-5 sm:space-y-6 pr-2 sm:pr-4 md:pr-6 lg:pr-8">
+              {/* Heading Group */}
+              <div className="space-y-3 sm:space-y-4">
+                <div className="inline-block bg-blue-400 text-black font-mono font-black text-xs md:text-sm px-3.5 py-1.5 border-2 border-black uppercase tracking-wider shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)]">
+                  Who is Chaitanya?
+                </div>
+                
+                <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-black uppercase tracking-tight leading-none">
+                  About <br /> Me
+                </h2>
+                
+                <p className="font-mono text-xs sm:text-sm md:text-base lg:text-lg text-gray-700 max-w-[280px] sm:max-w-xs md:max-w-[270px] lg:max-w-md leading-relaxed">
+                  Designing interfaces that feel alive and writing clean, scalable code that makes complex things simple.
+                </p>
               </div>
-              
-              <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-black uppercase tracking-tight leading-none">
-                About <br /> Me
-              </h2>
-              
-              <p className="font-mono text-sm sm:text-base md:text-base lg:text-lg text-gray-700 max-w-[280px] sm:max-w-xs md:max-w-[260px] lg:max-w-md leading-relaxed">
-                Designing interfaces that feel alive and writing clean, scalable code that makes complex things simple.
-              </p>
+
+              {/* Framed Photo Card - Aesthetic Neo-Brutalist Frame */}
+              <div className="relative pt-2 w-full max-w-[280px] sm:max-w-[310px] md:max-w-[285px] lg:max-w-[320px]">
+                {/* Playful sticker in top-right */}
+                <div className="absolute -top-1.5 -right-2 sm:-top-2 sm:-right-3 z-20 bg-yellow-300 border-2 border-black text-black font-mono font-black uppercase text-[10px] sm:text-xs px-2.5 py-0.5 rotate-[3deg] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] pointer-events-none">
+                  ✦ THAT&apos;S ME
+                </div>
+
+                {/* Subtle washi tape strip in top-left */}
+                <div 
+                  className="absolute -top-1 left-5 z-20 w-14 h-3.5 bg-amber-200/90 border border-black/40 rotate-[-3deg] shadow-xs pointer-events-none" 
+                  aria-hidden="true" 
+                />
+
+                {/* Main Physical Frame Card */}
+                <div className="bg-white border-4 border-black p-3 sm:p-3.5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 group rotate-[-1deg] hover:rotate-0">
+                  {/* Photo with clean crop and liquid distortion effect */}
+                  <div className="relative w-full aspect-[4/5] border-2 border-black overflow-hidden bg-neutral-900 cursor-pointer">
+                    <LiquidHover
+                      imageSrc="/images/chaitanya.jpg"
+                      intensity={45}
+                      cursorSize={60}
+                      resolution={12}
+                      className="w-full h-full"
+                    />
+
+                    {/* Aesthetic Viewfinder & Location Badges */}
+                    <div className="absolute top-2 left-2 z-10 flex items-center gap-1.5 bg-black/80 text-white font-mono text-[9px] px-1.5 py-0.5 border border-white/20 select-none pointer-events-none">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                      <span>LIVE</span>
+                    </div>
+
+                    <div className="absolute bottom-2 right-2 z-10 bg-white/95 text-black font-mono font-black text-[9px] px-1.5 py-0.5 border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] select-none pointer-events-none">
+                      PUNE, IN
+                    </div>
+                  </div>
+
+                  {/* Polaroid-style caption strip */}
+                  <div className="mt-2.5 pt-2 border-t-2 border-black flex items-center justify-between font-mono select-none">
+                    <div>
+                      <p className="text-xs sm:text-sm font-black text-black uppercase tracking-tight">
+                        Chaitanya Selote
+                      </p>
+                      <p className="text-[10px] font-bold text-gray-600 uppercase tracking-wider">
+                        Full Stack &amp; UI/UX
+                      </p>
+                    </div>
+                    <span className="bg-emerald-300 text-black border border-black px-2 py-0.5 text-[10px] font-mono font-black uppercase tracking-wider shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                      ✦ DEV
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
             
             {/* Right Column: Bio & Stats Dashboard Card */}

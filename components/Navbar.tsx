@@ -28,7 +28,10 @@ export default function Navbar() {
 
   const lastScrollYRef = useRef(0);
   const mobileMenuOpenRef = useRef(false);
-  mobileMenuOpenRef.current = mobileMenuOpen;
+
+  useEffect(() => {
+    mobileMenuOpenRef.current = mobileMenuOpen;
+  }, [mobileMenuOpen]);
 
   // Scroll listener for auto-hide, progress bar & scroll-spy
   useEffect(() => {
